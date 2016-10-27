@@ -12,8 +12,8 @@ namespace MonsterApp.Data_Access.models
 
   public class Gender
   {
-    public int  GenderID { get; set; }
-    public string GenderName { get; set; }
+    public int  GenderId { get; set; }
+    public string Name { get; set; }
     public bool Active { get; set;  }
   }
 }

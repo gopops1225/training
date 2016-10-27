@@ -12,7 +12,7 @@ namespace MonsterApp.Data_Access.models
 
   public class MonsterType
   {
-    public int MonsterTypeID { get; set; }
+    public int MonsterTypeId { get; set; }
     public string Name { get; set; }
     public bool Active { get; set; }
   }

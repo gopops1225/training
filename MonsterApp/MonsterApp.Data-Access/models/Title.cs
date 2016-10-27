@@ -12,7 +12,7 @@ namespace MonsterApp.Data_Access.models
 
   public class Title
   {
-    public int TitleID { get; set; }
+    public int TitleId { get; set; }
     public string TitleName { get; set; }
     public bool Active { get; set; }
   }

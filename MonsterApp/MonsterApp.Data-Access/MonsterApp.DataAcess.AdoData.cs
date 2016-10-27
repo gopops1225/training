@@ -4,19 +4,20 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace MonsterApp.Data_Access
 {
-  public class AdoData
+  public partial class AdoData
   {
-    private string connectionString = ConfigurationManager.ConnectionStrings["MonsterDB"].ConnectionString;;
+    private string connectionString = ConfigurationManager.ConnectionStrings["MonsterDB"].ConnectionString;
 
 
     
-    public List<models.Gender> GetGender()
+    public List<Gender> GetGender()
     {
       try
       {
@@ -26,14 +27,15 @@ namespace MonsterApp.Data_Access
         foreach (DataRow row in ds.Tables[0].Rows)
         {
           genders.Add(new Gender
-          { GenderID = int.Parse(row[0].ToString()),
-            GenderName = row[1].ToString(),
+          { GenderId = int.Parse(row[0].ToString()),
+            Name = row[1].ToString(),
             Active = bool.Parse(row[2].ToString())
           });
         }
       }
-      catch (Exception)
+      catch (Exception ex)
       {
+        Debug.WriteLine(ex);
         return null;
       }
       
@@ -61,8 +63,9 @@ namespace MonsterApp.Data_Access
       using (var connection = new SqlConnection(connectionString))
       {
         cmd = new SqlCommand(query, connection);
+        connection.Open();
         da = new SqlDataAdapter();
-        ds = new DataSet();
+       ds = new DataSet();
 
         da.Fill(ds);
 
@@ -76,6 +79,7 @@ namespace MonsterApp.Data_Access
 
   internal class sqlDataAdapter
   {
+    internal object insertCommand;
     private SqlCommand cmd;
 
     public sqlDataAdapter(SqlCommand cmd)
