@@ -1,4 +1,4 @@
-﻿using MonsterApp.Data_Access.models;
+﻿using models = MonsterApp.Data_Access.models;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -17,16 +17,16 @@ namespace MonsterApp.Data_Access
 
 
     
-    public List<Gender> GetGender()
+    public List<models.Gender> GetGender()
     {
       try
       {
         var ds = GetDataDisconnected("select * from Monster.Gender;");
-        var genders = new List<Gender>();
+        var genders = new List<models.Gender>();
 
         foreach (DataRow row in ds.Tables[0].Rows)
         {
-          genders.Add(new Gender
+          genders.Add(new models.Gender
           { GenderId = int.Parse(row[0].ToString()),
             Name = row[1].ToString(),
             Active = bool.Parse(row[2].ToString())
@@ -40,7 +40,7 @@ namespace MonsterApp.Data_Access
       }
       
 
-      return new List<Gender>();
+      return new List<models.Gender>();
     }
  
     public List<MonsterType> GetMonsterTypes()
@@ -53,7 +53,26 @@ namespace MonsterApp.Data_Access
       throw new NotImplementedException("todo");
     }
 
-    
+    public String  GetTopGender()
+    {
+      try
+      {
+        var ds = GetDataDisconnected("select GenderName, max(GenderID) from Monster.Gender Group BY GenderName;");
+        //var genders = new List<models.Gender>();
+
+        return ds.Tables.ToString() ;
+
+
+
+      }
+      catch (Exception ex)
+      {
+        Debug.WriteLine(ex);
+        return null;
+      }
+
+    }
+
     private DataSet GetDataDisconnected(string query)
     {
       SqlDataAdapter da;
@@ -64,7 +83,7 @@ namespace MonsterApp.Data_Access
       {
         cmd = new SqlCommand(query, connection);
         connection.Open();
-        da = new SqlDataAdapter();
+        da = new SqlDataAdapter(cmd);
        ds = new DataSet();
 
         da.Fill(ds);
@@ -76,15 +95,5 @@ namespace MonsterApp.Data_Access
 
 
   }
-
-  internal class sqlDataAdapter
-  {
-    internal object insertCommand;
-    private SqlCommand cmd;
-
-    public sqlDataAdapter(SqlCommand cmd)
-    {
-      this.cmd = cmd;
-    }
-  }
+ 
 }

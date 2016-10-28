@@ -19,5 +19,13 @@ namespace MonsterApp.Test
 
       Assert.NotNull(actual);
     }
+
+    [Fact]
+    public void Test_TopGenders()
+    {
+      AdoData data = new AdoData();
+
+      Console.WriteLine(data.GetTopGender());
+    }
   }
 }
