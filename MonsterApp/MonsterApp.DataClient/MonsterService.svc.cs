@@ -1,4 +1,6 @@
-﻿using System;
+﻿using  m= MonsterApp.Data_Access;
+using MonsterApp.DataClient.model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -11,9 +13,28 @@ namespace MonsterApp.DataClient
   // NOTE: In order to launch WCF Test Client for testing this service, please select MonsterService.svc or MonsterService.svc.cs at the Solution Explorer and start debugging.
   public class MonsterService : IMonsterService
   {
-    public string DoWork()
+    private m.AdoData data = new m.AdoData();
+
+    public List<GenderDAO> GetGenders()
     {
-      return "so clean";
+
+      var g = new List<GenderDAO>();
+      foreach(var gender in data.GetGender())
+      {
+        g.Add(GenderMap.MapToGenderDAO(gender));
+      }
+      return g;
     }
+
+    public List<MonsterTypeDAO> GetMonsterTypes()
+    {
+      throw new NotImplementedException();
+    }
+
+    public List<TitleDAO> GetTitles()
+    {
+      throw new NotImplementedException();
+    }
+
   }
 }
