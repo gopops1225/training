@@ -278,3 +278,6 @@ __pycache__/
 ### VisualStudio Patch ###
 build/
 /MonsterApp/MonsterApp.Data-Access/App.config
+/MonsterApp/MonsterApp.DataClient/Web.config
+/MonsterApp/MonsterApp.DataClient/Web.Debug.config
+/MonsterApp/MonsterApp.DataClient/Web.Release.config
