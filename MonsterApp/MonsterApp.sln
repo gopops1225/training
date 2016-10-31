@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonsterApp.Data-Access", "MonsterApp.Data-Access\MonsterApp.Data-Access.csproj", "{0D63DEBA-F097-4156-9421-EA9F42341A82}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonsterApp.Test", "MonsterApp.Test\MonsterApp.Test.csproj", "{DBE2672A-8B1C-4181-B097-EF0C9998827F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0D63DEBA-F097-4156-9421-EA9F42341A82}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0D63DEBA-F097-4156-9421-EA9F42341A82}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0D63DEBA-F097-4156-9421-EA9F42341A82}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0D63DEBA-F097-4156-9421-EA9F42341A82}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBE2672A-8B1C-4181-B097-EF0C9998827F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBE2672A-8B1C-4181-B097-EF0C9998827F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBE2672A-8B1C-4181-B097-EF0C9998827F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBE2672A-8B1C-4181-B097-EF0C9998827F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
